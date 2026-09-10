@@ -2,7 +2,7 @@
 
 This page shows the content elements supported by the documentation: local images, a compact information table, regular tables, a gallery, and code blocks.
 
-![xrDocs icon](./assets/examples/xrdocs-icon.png)
+![xrDocs icon](/assets/examples/xrdocs-icon.png)
 
 ## Quick Info
 
@@ -10,7 +10,7 @@ This page shows the content elements supported by the documentation: local image
 | --- | --- |
 | Material type | Example document |
 | Images | Stored in `public/assets/examples` |
-| Markdown link | `./assets/examples/xrdocs-icon.png` |
+| Markdown link | `/assets/examples/xrdocs-icon.png` |
 | Theme variants | Use an explicit `*.dark.png` or `*.light.png` Markdown link to enable theme switching |
 | Purpose | Visual check for imported or manually written pages |
 
@@ -20,7 +20,7 @@ Column alignment is controlled by the separator row: `:---` aligns left, `:---:`
 
 | Element | Markdown | Use case |
 | --- | --- | --- |
-| Image | `![Description](./assets/examples/xrdocs-icon.png)` | Screenshots, diagrams, previews |
+| Image | `![Description](/assets/examples/xrdocs-icon.png)` | Screenshots, diagrams, previews |
 | Inline code | `` `gamedata/configs` `` | Paths, section names, commands |
 | Code block | fenced code block | XML, LTX, Lua, and other snippets |
 
@@ -31,9 +31,9 @@ Column alignment is controlled by the separator row: `:---` aligns left, `:---:`
 
 ## Gallery
 
-![Example image 1](./assets/examples/xrdocs-icon.png)
+![Example image 1](/assets/examples/xrdocs-icon.png)
 
-![Example image 2](./assets/examples/xrdocs-icon.png)
+![Example image 2](/assets/examples/xrdocs-icon.png)
 
 ## GitHub Alerts
 

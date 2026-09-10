@@ -11,9 +11,9 @@ For icon work, use two applications:
 
 Avoid using Stalker Icon Editor for this task. Use [TGA](https://en.wikipedia.org/wiki/Truevision_TGA) as an intermediate source format and save it as a 32-bit image.
 
-![TGA settings](./assets/texturing/icon-atlases/tga-settings.png)
+![TGA settings](./assets/icon-atlases/tga-settings.png)
 
-![Save settings](./assets/texturing/icon-atlases/save-settings.png)
+![Save settings](./assets/icon-atlases/save-settings.png)
 
 ## Add a New Icon
 
@@ -21,9 +21,9 @@ It is easier to add new icons in [Paint.NET](https://www.getpaint.net/). Create 
 
 After saving, open the atlas in Photoshop. Enable the grid with `Ctrl+'`; the grid size is configured in preferences, and a standard cell is usually 50 pixels.
 
-![Photoshop grid](./assets/texturing/icon-atlases/photoshop-grid.png)
+![Photoshop grid](./assets/icon-atlases/photoshop-grid.png)
 
-![Grid preferences](./assets/texturing/icon-atlases/preferences.png)
+![Grid preferences](./assets/icon-atlases/preferences.png)
 
 > [!IMPORTANT]
 > Do not use the rightmost and bottommost atlas cells: they are incomplete and a few pixels smaller than the others.
@@ -39,7 +39,7 @@ Open the layers panel and unlock the layer. The properties panel will then show 
 > [!TIP]
 > In Photoshop CS5/CS6, coordinates are available with `F8`; in newer versions they are shown in the properties panel.
 
-![Selected area properties](./assets/texturing/icon-atlases/properties.png)
+![Selected area properties](./assets/icon-atlases/properties.png)
 
 For example, if the `X` position is `950` and the atlas cell size is `50`, divide `950` by `50` to get `19`. This value goes into `inv_grid_x`. Calculate the `Y` coordinate the same way.
 
@@ -54,15 +54,15 @@ Open the atlas in [Paint.NET](https://www.getpaint.net/) or in Photoshop with a 
 
 ### Saving in Photoshop
 
-![Saving DDS in Photoshop](./assets/texturing/icon-atlases/photoshop-save.png)
+![Saving DDS in Photoshop](./assets/icon-atlases/photoshop-save.png)
 
-![NVIDIA DDS settings](./assets/texturing/icon-atlases/nvidia-save-options.png)
+![NVIDIA DDS settings](./assets/icon-atlases/nvidia-save-options.png)
 
 ### Saving in [Paint.NET](https://www.getpaint.net/)
 
-![Saving DDS in Paint.NET](./assets/texturing/icon-atlases/paintnet-save.png)
+![Saving DDS in Paint.NET](./assets/icon-atlases/paintnet-save.png)
 
-![DDS settings in Paint.NET](./assets/texturing/icon-atlases/paintnet-options.png)
+![DDS settings in Paint.NET](./assets/icon-atlases/paintnet-options.png)
 
 ## Sources
 

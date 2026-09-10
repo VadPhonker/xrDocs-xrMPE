@@ -11,9 +11,9 @@
 
 Stalker Icon Editor для этой задачи лучше не использовать. В качестве промежуточного исходника держите файл в формате [TGA](https://ru.wikipedia.org/wiki/Truevision_TGA) и сохраняйте его как 32-битное изображение.
 
-![Настройки TGA](./assets/texturing/icon-atlases/tga-settings.png)
+![Настройки TGA](./assets/icon-atlases/tga-settings.png)
 
-![Настройки сохранения](./assets/texturing/icon-atlases/save-settings.png)
+![Настройки сохранения](./assets/icon-atlases/save-settings.png)
 
 ## Добавьте новую иконку
 
@@ -21,9 +21,9 @@ Stalker Icon Editor для этой задачи лучше не использ�
 
 После сохранения откройте атлас в Photoshop. Включите сетку сочетанием `Ctrl+'`; размер сетки настраивается в параметрах, а стандартная ячейка обычно равна 50 пикселям.
 
-![Сетка Photoshop](./assets/texturing/icon-atlases/photoshop-grid.png)
+![Сетка Photoshop](./assets/icon-atlases/photoshop-grid.png)
 
-![Настройки сетки](./assets/texturing/icon-atlases/preferences.png)
+![Настройки сетки](./assets/icon-atlases/preferences.png)
 
 > [!IMPORTANT]
 > Не используйте крайние правые и нижние ячейки атласа: они неполные и на несколько пикселей меньше остальных.
@@ -39,7 +39,7 @@ Stalker Icon Editor для этой задачи лучше не использ�
 > [!TIP]
 > В Photoshop CS5/CS6 координаты можно посмотреть через `F8`; в новых версиях они доступны в панели свойств.
 
-![Свойства выделенной области](./assets/texturing/icon-atlases/properties.png)
+![Свойства выделенной области](./assets/icon-atlases/properties.png)
 
 Например, если позиция `X` равна `950`, а размер ячейки атласа `50`, разделите `950` на `50` и получите `19`. Это значение записывается в `inv_grid_x`. Для координаты `Y` расчет такой же.
 
@@ -54,15 +54,15 @@ Stalker Icon Editor для этой задачи лучше не использ�
 
 ### Сохранение в Photoshop
 
-![Сохранение DDS в Photoshop](./assets/texturing/icon-atlases/photoshop-save.png)
+![Сохранение DDS в Photoshop](./assets/icon-atlases/photoshop-save.png)
 
-![Настройки NVIDIA DDS](./assets/texturing/icon-atlases/nvidia-save-options.png)
+![Настройки NVIDIA DDS](./assets/icon-atlases/nvidia-save-options.png)
 
 ### Сохранение в [Paint.NET](https://www.getpaint.net/)
 
-![Сохранение DDS в Paint.NET](./assets/texturing/icon-atlases/paintnet-save.png)
+![Сохранение DDS в Paint.NET](./assets/icon-atlases/paintnet-save.png)
 
-![Настройки DDS в Paint.NET](./assets/texturing/icon-atlases/paintnet-options.png)
+![Настройки DDS в Paint.NET](./assets/icon-atlases/paintnet-options.png)
 
 ## Источники
 

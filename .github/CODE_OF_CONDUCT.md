@@ -1,6 +1,6 @@
 # Code of Conduct
 
-English | [Русский](/doc/CODE_OF_CONDUCT.rus.md)
+English | [Русский](../meta-docs/ru/CODE_OF_CONDUCT.md)
 
 ## Our standards
 

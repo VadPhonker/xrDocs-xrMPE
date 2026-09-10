@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "npm run optimize:assets && vite --host 127.0.0.1 --open /",
-    "optimize:assets": "node scripts/optimize-assets.mjs",
-    "prepare:content": "node scripts/generate-content-data.mjs",
-    "build": "npm run optimize:assets && npm run prepare:content && tsc && vite build && node scripts/prerender.mjs",
+    "optimize:assets": "node scripts/assets/optimize-assets.mjs",
+    "prepare:content": "node scripts/content/generate-content-data.mjs",
+    "check": "node scripts/check-links.mjs",
+    "build": "npm run optimize:assets && npm run prepare:content && tsc && vite build && node scripts/prerender/prerender.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
@@ -24,6 +25,6 @@
     "vite": "^8.2.2"
   },
   "allowScripts": {
-    "sharp@0.35.3": true
+    "sharp@0.35.4": true
   }
 }

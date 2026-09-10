@@ -1,6 +1,6 @@
 # Contributing Guide
 
-English | [Русский](/doc/CONTRIBUTING.rus.md)
+English | [Русский](../meta-docs/ru/CONTRIBUTING.md)
 
 Thank you for your interest in xrDocs. The project accepts documentation fixes, new articles, navigation improvements, search updates, styling changes, and infrastructure work.
 
@@ -21,6 +21,12 @@ Build before opening a Pull Request:
 
 ```powershell
 npm.cmd run build
+```
+
+You can also validate article links and image paths without a full build:
+
+```powershell
+npm.cmd run check
 ```
 
 On Windows PowerShell, use `npm.cmd` to avoid execution policy issues.
@@ -46,10 +52,19 @@ Rules:
 - If a page needs a stable menu position, update the matching `init.md`.
 - Write internal links to `.md` files, for example `[addon structure](addon-structure.md)`.
 
+### Images
+
+- Keep screenshots next to the article: store them under `docs/<lang>/<section>/assets/…` and reference them relatively, for example `![TGA settings](./assets/icon-atlases/tga-settings.png)`.
+- Site-wide images (icons, theme assets) live in `public/assets/…` and are referenced with a root-absolute path, for example `/assets/examples/xrdocs-icon.png`.
+- AVIF twins are generated automatically by `npm run optimize:assets` — commit only the source PNG/JPG/WebP files.
+
+See [ARCHITECTURE.md](../ARCHITECTURE.md) for the full project map and build pipeline.
+
 ## Code
 
 - TypeScript uses strict mode.
-- Keep the existing structure: app logic in `src/main.ts`, styles in `src/styles.css`.
+- Source layout: `src/app` (shell, routing, state, theme), `src/content` (docs, article, nav, toc, Markdown), `src/search`, `src/statistics`, and `src/shared` (types, locales, utils, plus browser-safe modules reused by build scripts).
+- Build pipeline lives in `scripts/` (`content/`, `assets/`, `prerender/`, `shared/`). Scripts may import from `src/shared/`, but `src/` must never import from `scripts/`.
 - Do not add backend dependencies: the project should remain a static site.
 - Prefer explicit types for shared structures.
 - Do not commit `dist/`, `node_modules/`, or log files.
@@ -67,4 +82,4 @@ Use short, clear commit messages such as `Add English addon guide` or `Fix searc
 
 ## Conduct
 
-By participating, follow [.github/CODE_OF_CONDUCT.md](/.github/CODE_OF_CONDUCT.md).
+By participating, follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

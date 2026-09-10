@@ -1,6 +1,6 @@
 # Security Policy
 
-English | [Русский](/doc/SECURITY.rus.md)
+English | [Русский](../meta-docs/ru/SECURITY.md)
 
 ## Supported versions
 

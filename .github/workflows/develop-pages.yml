@@ -63,8 +63,9 @@ jobs:
         with:
           path: |
             production/public/**/*.avif
+            production/docs/**/*.avif
             production/public/.asset-cache.json
-          key: optimized-assets-production-${{ runner.os }}-${{ hashFiles('production/package-lock.json', 'production/scripts/optimize-assets.mjs', 'production/scripts/assets/xrdocs-icon.png', 'production/public/**/*.png', 'production/public/**/*.jpg', 'production/public/**/*.jpeg', 'production/public/**/*.webp') }}
+          key: optimized-assets-production-${{ runner.os }}-${{ hashFiles('production/package-lock.json', 'production/scripts/optimize-assets.mjs', 'production/branding/xrdocs-icon.png', 'production/docs/**/*.png', 'production/docs/**/*.jpg', 'production/docs/**/*.jpeg', 'production/docs/**/*.webp', 'production/public/**/*.png', 'production/public/**/*.jpg', 'production/public/**/*.jpeg', 'production/public/**/*.webp') }}
           restore-keys: |
             optimized-assets-production-${{ runner.os }}-
 
@@ -97,8 +98,9 @@ jobs:
         with:
           path: |
             develop/public/**/*.avif
+            develop/docs/**/*.avif
             develop/public/.asset-cache.json
-          key: optimized-assets-develop-${{ runner.os }}-${{ hashFiles('develop/package-lock.json', 'develop/scripts/optimize-assets.mjs', 'develop/scripts/assets/xrdocs-icon.png', 'develop/public/**/*.png', 'develop/public/**/*.jpg', 'develop/public/**/*.jpeg', 'develop/public/**/*.webp') }}
+          key: optimized-assets-develop-${{ runner.os }}-${{ hashFiles('develop/package-lock.json', 'develop/scripts/optimize-assets.mjs', 'develop/branding/xrdocs-icon.png', 'develop/docs/**/*.png', 'develop/docs/**/*.jpg', 'develop/docs/**/*.jpeg', 'develop/docs/**/*.webp', 'develop/public/**/*.png', 'develop/public/**/*.jpg', 'develop/public/**/*.jpeg', 'develop/public/**/*.webp') }}
           restore-keys: |
             optimized-assets-develop-${{ runner.os }}-
 

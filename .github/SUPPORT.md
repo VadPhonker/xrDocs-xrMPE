@@ -1,6 +1,6 @@
 # Support
 
-English | [Русский](/doc/SUPPORT.rus.md)
+English | [Русский](../meta-docs/ru/SUPPORT.md)
 
 Use GitHub Issues for:
 

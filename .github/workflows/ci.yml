@@ -6,6 +6,7 @@ on:
       - '.github/workflows/ci.yml'
       - '.npmrc'
       - '.nvmrc'
+      - 'branding/**'
       - 'docs/**'
       - 'index.html'
       - 'package-lock.json'
@@ -43,13 +44,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check documentation references
+        run: npm run check
+
       - name: Restore optimized image assets
         uses: actions/cache@v6.1.0
         with:
           path: |
             public/**/*.avif
+            docs/**/*.avif
             public/.asset-cache.json
-          key: optimized-assets-${{ runner.os }}-${{ hashFiles('package-lock.json', 'scripts/optimize-assets.mjs', 'scripts/assets/xrdocs-icon.png', 'public/**/*.png', 'public/**/*.jpg', 'public/**/*.jpeg', 'public/**/*.webp') }}
+          key: optimized-assets-${{ runner.os }}-${{ hashFiles('package-lock.json', 'scripts/optimize-assets.mjs', 'branding/xrdocs-icon.png', 'docs/**/*.png', 'docs/**/*.jpg', 'docs/**/*.jpeg', 'docs/**/*.webp', 'public/**/*.png', 'public/**/*.jpg', 'public/**/*.jpeg', 'public/**/*.webp') }}
           restore-keys: |
             optimized-assets-${{ runner.os }}-
 

@@ -1,11 +1,75 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { defineConfig, type Plugin, type ViteDevServer } from 'vite';
-import { generateContentData } from './scripts/generate-content-data.mjs';
-import { defaultBasePath } from './scripts/shared-utils.mjs';
-import { debounce } from './src/utils/debounce.ts';
+import { generateContentData } from './scripts/content/generate-content-data.mjs';
+import { defaultBasePath } from './src/shared/shared-utils.mjs';
+import { debounce } from './src/shared/utils/debounce.ts';
 
 const markdownWatchPattern = /[/\\]docs[/\\](?:ru|en)[/\\].+\.md$/i;
+
+const docsAssetMimeTypes = {
+  '.avif': 'image/avif',
+  '.gif': 'image/gif',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+  '.webp': 'image/webp',
+};
+
+/**
+ * Serves article assets colocated under docs/<lang>/…/assets/ during dev, so
+ * relative `./assets/…` references resolve exactly like in production.
+ */
+function docsAssetsServePlugin(): Plugin {
+  return {
+    name: 'xr-docs-docs-assets-serve',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const urlPath = (req.url || '').split('?')[0];
+        const match = urlPath.match(/^\/docs\/(ru|en)\/(.+)$/i);
+
+        if (!match) {
+          next();
+          return;
+        }
+
+        // Only serve known image assets. Anything else (e.g. *.md raw-module
+        // requests ending in ?import&raw) must reach Vite's transform pipeline.
+        if (!docsAssetMimeTypes[path.extname(urlPath).toLowerCase()]) {
+          next();
+          return;
+        }
+
+        const segments = decodeURIComponent(match[2])
+          .split('/')
+          .filter((segment) => segment && segment !== '.' && segment !== '..');
+        const docsRoot = path.resolve(server.config.root, 'docs');
+        const filePath = segments.length
+          ? path.resolve(docsRoot, match[1], ...segments)
+          : '';
+
+        if (!filePath.startsWith(docsRoot + path.sep)) {
+          next();
+          return;
+        }
+
+        fs.readFile(filePath)
+          .then((data) => {
+            res.statusCode = 200;
+            res.setHeader(
+              'Content-Type',
+              docsAssetMimeTypes[path.extname(filePath).toLowerCase()] || 'application/octet-stream',
+            );
+            res.setHeader('Cache-Control', 'no-cache');
+            res.end(data);
+          })
+          .catch(() => next());
+      });
+    },
+  };
+}
 
 function docsContentReloadPlugin(): Plugin {
   let server: ViteDevServer;
@@ -135,7 +199,11 @@ function invalidateFileModules(server: ViteDevServer, file: string) {
   }
 }
 
-export default defineConfig(({ command }) => ({
-  base: process.env.VITE_BASE_PATH || (command === 'build' ? defaultBasePath : './'),
-  plugins: [docsContentReloadPlugin(), omitPublicCachePlugin()],
+export default defineConfig(({ command, isPreview }) => ({
+  // `vite preview` must serve dist under the same base the build stamped into
+  // every HTML/asset URL. Without this the preview server answered at the root
+  // while the pages requested /xrDocs-xrMPE/assets/* — the JS bundle 404'd and
+  // the prerendered site rendered as a dead, non-interactive page.
+  base: process.env.VITE_BASE_PATH || (command === 'build' || isPreview ? defaultBasePath : './'),
+  plugins: [docsContentReloadPlugin(), docsAssetsServePlugin(), omitPublicCachePlugin()],
 }));

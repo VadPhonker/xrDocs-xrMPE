@@ -2,7 +2,7 @@
 
 Эта страница показывает, какие элементы можно использовать в документации: локальные изображения, краткую таблицу параметров, обычные таблицы, галерею и блоки кода.
 
-![Иконка xrDocs](./assets/examples/xrdocs-icon.png)
+![Иконка xrDocs](/assets/examples/xrdocs-icon.png)
 
 ## Краткая информация
 
@@ -10,7 +10,7 @@
 | --- | --- |
 | Тип материала | Пример документа |
 | Изображения | Хранятся в `public/assets/examples` |
-| Markdown-ссылка | `./assets/examples/xrdocs-icon.png` |
+| Markdown-ссылка | `/assets/examples/xrdocs-icon.png` |
 | Варианты темы | Используйте явную Markdown-ссылку на `*.dark.png` или `*.light.png`, чтобы включить переключение по теме |
 | Назначение | Проверка оформления импортируемых или вручную написанных страниц |
 
@@ -20,7 +20,7 @@
 
 | Элемент | Как писать | Для чего использовать |
 | --- | --- | --- |
-| Картинка | `![Описание](./assets/examples/xrdocs-icon.png)` | Скриншоты, схемы, превью |
+| Картинка | `![Описание](/assets/examples/xrdocs-icon.png)` | Скриншоты, схемы, превью |
 | Inline-code | `` `gamedata/configs` `` | Пути, имена секций, команды |
 | Code block | fenced code block | XML, LTX, Lua и другие фрагменты |
 
@@ -31,9 +31,9 @@
 
 ## Галерея
 
-![Пример изображения 1](./assets/examples/xrdocs-icon.png)
+![Пример изображения 1](/assets/examples/xrdocs-icon.png)
 
-![Пример изображения 2](./assets/examples/xrdocs-icon.png)
+![Пример изображения 2](/assets/examples/xrdocs-icon.png)
 
 ## GitHub Alerts
 
