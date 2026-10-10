@@ -16,13 +16,15 @@
   },
   "dependencies": {
     "highlight.js": "^11.12.0",
-    "markdown-it": "^15.0.2"
+    "markdown-it": "^15.0.2",
+    "source-map-js": ">=1.2.2"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.2.0",
     "sharp": "^0.35.5",
     "typescript": "^7.0.2",
-    "vite": "^8.3.2"
+    "vite": "^8.3.2",
+    "source-map-js": ">=1.2.2"
   },
   "allowScripts": {
     "sharp@0.35.4": true
