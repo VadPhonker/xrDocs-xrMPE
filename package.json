@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "highlight.js": "^11.12.0",
-    "markdown-it": "^15.0.2",
+    "markdown-it": "^15.0.3",
     "source-map-js": ">=1.2.2"
   },
   "devDependencies": {
